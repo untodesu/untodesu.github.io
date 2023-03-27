@@ -7,6 +7,8 @@ const renderer = new THREE.WebGLRenderer({ antialias: true });
 const camera = new THREE.OrthographicCamera(-1.0, 1.0, 1.0, -1.0, 0.0, 1000.0);
 renderer.setPixelRatio(window.devicePixelRatio);
 document.body.appendChild(renderer.domElement);
+document.body.style.background = `url(${renderer.domElement.toDataURL()})`;
+console.log(renderer.domElement.toDataURL());
 
 function onResize() {
     const aspect = (window.innerWidth / window.innerHeight);
