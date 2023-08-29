@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script type="module" src="cubes.js"></script>
+        <link rel="stylesheet" href="post.css"/>
+        <title>${sblg-title} | UNTODE.SU</title>
+    </head>
+    <body>
+        <header>
+            <h1><a href="index.html">UNTODE.SU</a></h1>
+            <p><a href="cubes.html">Cubes</a></p>
+            <p><a href="https://twitter.com/untodesu" target="_blank">Twitter</a></p>
+            <p><a href="https://github.com/untodesu" target="_blank">GitHub</a></p>
+        </header>
+        <section>
+            <header>
+                <h2>${sblg-title}</h2>
+                <p class="author">By ${sblg-author}, ${sblg-datetime}</p>
+                <p class="tags">Tags: ${sblg-tags}</p><hr/>
+            </header>
+            <article data-sblg-article="1" data-sblg-permlink="0"></article>
+        </section>
+    </body>
+</html>
