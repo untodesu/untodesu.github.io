@@ -5,10 +5,10 @@ export LANGUAGE=C
 export LANG=C
 
 POSTS := $(wildcard posts/*.md)
-POSTS_XML := $(patsubst posts/%.md,html/post.%.xml,$(POSTS))
-POSTS_HTML := $(patsubst posts/%.md,html/post.%.html,$(POSTS))
+POSTS_XML := $(patsubst posts/%.md,post.%.xml,$(POSTS))
+POSTS_HTML := $(patsubst posts/%.md,post.%.html,$(POSTS))
 
-html/post.%.xml: posts/%.md
+post.%.xml: posts/%.md
 	truncate -s 0 $@
 	printf "<article data-sblg-article=\"1\"" >> $@
 	printf " data-sblg-tags=\"`lowdown -X tags $<`\"" >> $@
@@ -19,11 +19,11 @@ html/post.%.xml: posts/%.md
 	lowdown $< >> $@
 	printf "</article>" >> $@
 
-html/index.html: $(POSTS_XML) template.index.xml template.post.xml
-	sblg -s cmdline -t template.post.xml -L $(POSTS_XML)
-	sblg -s rcmdline -t template.index.xml -o $@ $(POSTS_XML)
+index.html: $(POSTS_XML) index.xml post.xml
+	sblg -s cmdline -t post.xml -L $(POSTS_XML)
+	sblg -s rcmdline -t index.xml -o $@ $(POSTS_XML)
 
-all: html/index.html
+all: index.html
 
 clean:
 	rm -vf $(POSTS_XML)
@@ -31,4 +31,4 @@ clean:
 distclean:
 	rm -vf $(POSTS_XML)
 	rm -vf $(POSTS_HTML)
-	rm -vf html/index.html
+	rm -vf index.html
