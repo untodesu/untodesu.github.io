@@ -16,7 +16,7 @@
         </header>
         <nav data-sblg-nav="1" data-sblg-navcontent="1">
             <h2><a href="${sblg-stripbase}.html">${sblg-title}</a></h2>
-            <p class="author">By ${sblg-author}, ${sblg-datetime}</p>
+            <p class="author">By ${sblg-author}, ${sblg-date}</p>
             <p class="tags">Tags: ${sblg-tags}</p>
             <p class="aside">${sblg-aside}</p><hr/>
         </nav>

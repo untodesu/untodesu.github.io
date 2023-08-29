@@ -75,24 +75,18 @@ const onresize = function() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 };
 
-const onfocus = function() {
-    renderer.setPixelRatio(window.devicePixelRatio / 2);
-    target_framerate = 50.0;
-}
-
-const onblur = function() {
-    renderer.setPixelRatio(window.devicePixelRatio / 8);
-    target_framerate = 5.0;
-}
-
 addEventListener("resize", onresize);
-addEventListener("focus", onfocus);
-addEventListener("blur", onblur);
-
+addEventListener("focus", function() { target_framerate = 50.0; });
+addEventListener("blur", function() { target_framerate = 15.0; });
 addEventListener("visibilitychange", function() {
-    if(this.document.visibilityState !== "hidden")
-        onfocus();
-    else onblur();
+    if(this.document.visibilityState !== "hidden") {
+        renderer.setPixelRatio(window.devicePixelRatio / 2);
+        target_framerate = 50.0;
+    }
+    else {
+        renderer.setPixelRatio(window.devicePixelRatio / 8);
+        target_framerate = 5.0;
+    }
 });
 
 onresize();
