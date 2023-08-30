@@ -1,7 +1,6 @@
 html, body {
     display: flex;
     flex-flow: column;
-    font-family: monospace;
     height: 100%;
     margin: 0;
 }
@@ -15,6 +14,10 @@ canvas {
     top: 0;
     width: 100%;
     z-index: -9999;
+}
+
+header {
+    font-family: monospace;
 }
 
 body > header {
@@ -94,7 +97,8 @@ section > header > .tags .sblg-tag + .sblg-tag:before {
     content: ", ";
 }
 
-section > article > h1 {
+section > article > h1, h3, h4 {
+    margin-bottom: 0;
     margin-top: 4rem;
 }
 
@@ -111,13 +115,14 @@ a {
     color: inherit;
 }
 
-code {
-    font-size: 75%;
-    padding-left: 2rem;
+pre {
+    padding-left: 1rem;
+    border-left: 0.3rem solid #444444;
+    font-style: italic;
 }
 
 img {
     min-width: 35%;
-    max-width: 75%;
+    max-width: 95%;
     height: auto;
 }

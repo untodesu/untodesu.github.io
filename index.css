@@ -1,7 +1,6 @@
 html, body {
     display: flex;
     flex-flow: column;
-    font-family: monospace;
     height: 100%;
     margin: 0;
 }
@@ -15,6 +14,10 @@ canvas {
     top: 0;
     width: 100%;
     z-index: -9999;
+}
+
+header {
+    font-family: monospace;
 }
 
 body > header {
@@ -57,6 +60,7 @@ body > header > p > a {
 }
 
 nav[data-sblg-nav] {
+    font-family: monospace;
     background-color: #000000;
     color: #FFFFFF;
     display: block;

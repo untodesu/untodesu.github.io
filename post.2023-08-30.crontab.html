@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script type="module" src="waves.js"></script>
+        <link rel="stylesheet" href="post.css" />
+        <title>Automating things without systemd | UNTODE.SU</title>
+    </head>
+    <body>
+        <header>
+            <h1><a href="index.html">ウントです</a></h1>
+            <p><a href="waves.html">Waves</a></p>
+            <p><a href="https://twitter.com/untodesu" target="_blank">Twitter</a></p>
+            <p><a href="https://github.com/untodesu" target="_blank">GitHub</a></p>
+        </header>
+        <section>
+            <header>
+                <h2>Automating things without systemd</h2>
+                <p class="author">By untodesu, 2023-08-30</p>
+                <p class="tags">Tags: <span class="sblg-tag">crontab</span><span class="sblg-tag">automation</span></p><hr />
+            </header>
+            <article data-sblg-article="1" data-sblg-tags="crontab automation" data-sblg-title="Automating things without systemd" data-sblg-author="untodesu" data-sblg-datetime="2023-08-30" data-sblg-aside="Making things run in the background without root access"><p>This year I encountered the need to run certain processes
+in the background consistently without root acces and without
+using systemd (SSH appears to have issues with user services).
+Generally speaking, the way to do this without any overhead is
+evident: use <code>crontab</code> and have scripts that manage processes
+in the background.  </p>
+<h1 id="the-service-script">The service script</h1>
+<p>The service script can be either simple, not accepting any
+arguments and just checking whether the process is running and
+if it isn&#8217;t, starting the process; or complicated, resembling
+in its design a simple rc.d service script with according parameters.  </p>
+<h1 id="simple-using-">Simple, using <code>nohup</code></h1>
+<p>Certain processes don&#8217;t need any input, nor they need to be
+stopped or restarted. One such case is using an amazing SOCKS5
+proxy server called <a href="https://github.com/rofl0r/microsocks">microsocks</a>.
+The server doesn&#8217;t need any <code>stdin</code> data and simply works.  </p>
+<p>So it isn&#8217;t a big deal if the script would just check for a user process
+with the defined name and if there&#8217;s none, it will start a new one. One important
+thing to consider with this approach is strict process name matching: since the
+&#8220;daemon&#8221; script is named <code>microsocksd</code>, running <code>grep</code> without <code>-w</code> key will result
+in it detecting itself (the script) present and not starting the proxy server:</p>
+<pre><code class="language-sh">#!&#47;bin&#47;sh
+cmds=$(ps -o cmd)
+if echo $cmds | grep -wq microsocks; then exit 0; fi
+nohup ~&#47;.bin&#47;microsocks -p $MICROSOCKS_PORT &#62;&#47;dev&#47;null 2&#62;&#38;1 &#38;
+exit 0
+</code></pre>
+<p>The script is then put into the local <code>crontab</code> (via <code>crontab -e</code>) to run at fixed
+intervals (in my case it&#8217;s 5 minutes, seems like a good start if you want to
+reduce your PID consumption if your VPS hoster limits PID amount, which apparently
+is a thing, <em>the more you know</em>): </p>
+<pre><code class="language-crontab">*&#47;5 * * * * &#47;home&#47;und&#47;.bin&#47;microsocksd
+</code></pre>
+<h1 id="complicated-using-">Complicated, using <code>screen</code></h1>
+<p>Well, it&#8217;s complicated, duh.  </p>
+<p>If the target process&#47;application is more sensitive and there could be running multiple
+processes with the same name, it is safer to use GNU <code>screen</code> and design the service
+script to resemble a generic <code>rc.d</code> script. Such script should have <code>start</code>, <code>stop</code> and <code>restart</code>
+commands to control general behaviour, <code>watch</code> to start the process if it is not running
+currently, and may have <code>stuff</code> to well&#8230; stuff a string of text to the process&#8217; standard input:  </p>
+<pre><code class="language-sh">sh service.sh start
+sh service.sh restart
+sh service.sh stop
+sh service.sh watch
+sh service.sh stuff An input string of text
+</code></pre>
+<p>One good example of such approach is my Minecraft™ SMP, running on a VPS where I don&#8217;t
+have root access and user systemd services won&#8217;t work since I can only connect to it
+through an SSH session. The automation also includes regular restarts as Java Edition
+servers tend to lose stability at high uptimes. The service script for my SMP is available <a href="https://github.com/untodesu/nrmc/blob/main/service.sh">here</a>.  </p>
+<pre><code class="language-crontab">*&#47;5 * * * * &#47;home&#47;und&#47;nrmc&#47;service.sh watch
+30 19 * * * &#47;home&#47;und&#47;nrmc&#47;service.sh stuff broadcast "Restarting in 30 minutes"
+45 19 * * * &#47;home&#47;und&#47;nrmc&#47;service.sh stuff broadcast "Restarting in 15 minutes"
+55 19 * * * &#47;home&#47;und&#47;nrmc&#47;service.sh stuff broadcast "Restarting in  5 minutes"
+55 19 * * * &#47;home&#47;und&#47;nrmc&#47;service.sh stuff save-all
+00 20 * * * &#47;home&#47;und&#47;nrmc&#47;service.sh restart
+</code></pre>
+<h1 id="results">Results</h1>
+<p>Judging by the fact that I can access Twitter and evident by Discord
+notifications sent by my server plugin, I can assume the approach
+works like a charm:</p>
+<p><img src="media/2023-08-30.11-47.png" alt=""/></p>
+</article>
+        </section>
+    </body>
+</html>
