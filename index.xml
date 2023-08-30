@@ -18,7 +18,7 @@
             <h2><a href="${sblg-stripbase}.html">${sblg-title}</a></h2>
             <p class="author">By ${sblg-author}, ${sblg-datetime-fmt|%Y-%m-%d %H:%M}</p>
             <p class="tags">Tags: ${sblg-tags}</p>
-            <p class="aside">${sblg-aside}</p><hr/>
+            <blockquote><p>${sblg-aside}</p></blockquote><hr/>
         </nav>
     </body>
 </html>

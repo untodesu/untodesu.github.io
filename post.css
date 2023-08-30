@@ -16,10 +16,6 @@ canvas {
     z-index: -9999;
 }
 
-header {
-    font-family: monospace;
-}
-
 body > header {
     background: #000000;
     color: #FFFFFF;
@@ -34,6 +30,7 @@ body > header > h1 {
     display: table-cell;
     font-size: 200%;
     font-weight: 200;
+    font-family: monospace;
     margin-top: 0;
     padding-left: 1%;
     vertical-align: middle;
@@ -65,8 +62,8 @@ section {
     display: block;
     flex-grow: 1;
     font-size: x-large;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 15%;
+    margin-right: 15%;
     opacity: 99%;
     overflow: auto;
     padding: 1rem 10rem;
@@ -75,6 +72,7 @@ section {
 section > header > h2 {
     font-weight: 700;
     margin-bottom: 1rem;
+    font-family: monospace;
 }
 
 section > header > p {
@@ -86,11 +84,8 @@ section > header > .author, .tags {
     color: #DDDDDD;
     font-size: smaller;
     font-style: italic;
+    font-family: monospace;
     margin: 0;
-}
-
-section > header > .tags {
-    margin-bottom: 2rem;
 }
 
 section > header > .tags .sblg-tag + .sblg-tag:before {
@@ -117,8 +112,26 @@ a {
 
 pre {
     padding-left: 1rem;
-    border-left: 0.3rem solid #444444;
     font-style: italic;
+    margin-bottom: 3rem;
+}
+
+blockquote {
+    color: #CCCCCC;
+    border-left: 0.3rem solid #444444;
+    padding-left: 1rem;
+    font-style: italic;
+    margin-left: 0;
+    margin-bottom: 3rem;
+}
+
+header > blockquote {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+blockquote > p {
+    margin: 0;
 }
 
 img {

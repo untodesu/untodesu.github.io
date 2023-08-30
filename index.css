@@ -16,10 +16,6 @@ canvas {
     z-index: -9999;
 }
 
-header {
-    font-family: monospace;
-}
-
 body > header {
     background: #000000;
     color: #FFFFFF;
@@ -28,6 +24,7 @@ body > header {
     min-height: 5%;
     width: 100%;
     border-bottom: 1px solid #222222;
+    font-family: monospace;
 }
 
 body > header > h1 {
@@ -60,14 +57,13 @@ body > header > p > a {
 }
 
 nav[data-sblg-nav] {
-    font-family: monospace;
     background-color: #000000;
     color: #FFFFFF;
     display: block;
     flex-grow: 1;
     font-size: x-large;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 15%;
+    margin-right: 15%;
     opacity: 99%;
     overflow: auto;
     padding: 1rem 10rem;
@@ -76,18 +72,15 @@ nav[data-sblg-nav] {
 nav[data-sblg-nav] > ul > li > h2 {
     font-weight: 700;
     margin-bottom: 1rem;
+    font-family: monospace;
 }
 
 nav[data-sblg-nav] > ul > li > .author, .tags {
     color: #DDDDDD;
     font-size: smaller;
     font-style: italic;
+    font-family: monospace;
     margin: 0;
-}
-
-nav[data-sblg-nav] > ul > li > .aside {
-    color: #DDDDDD;
-    font-style: italic;
 }
 
 nav[data-sblg-nav] > ul > li > .tags .sblg-tag + .sblg-tag:before {
@@ -114,4 +107,18 @@ hr {
 
 a {
     color: inherit;
+}
+
+blockquote {
+    color: #CCCCCC;
+    border-left: 0.3rem solid #444444;
+    padding-left: 1rem;
+    font-style: italic;
+    margin-left: 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+blockquote > p {
+    margin: 0;
 }
