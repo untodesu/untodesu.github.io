@@ -32,10 +32,6 @@ const dummy = new THREE.Object3D();
 
 scene.add(mesh);
 
-const getpar = function(t) {
-    return 2.0 * Math.acos(Math.cos(t)) / Math.PI - 1.0;
-};
-
 const animate = function() {
     setTimeout(() => requestAnimationFrame(animate), 1000.0 / 25.0);
 
@@ -84,6 +80,8 @@ const onresize = function() {
     renderer.setPixelRatio(window.devicePixelRatio / 4);
     renderer.setSize(window.innerWidth, window.innerHeight);
 };
+
+window.addEventListener("resize", onresize);
 
 onresize();
 animate();
