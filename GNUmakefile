@@ -1,5 +1,6 @@
 ## SPDX-License-Identifier: CC-BY-4.0
 
+export TZ=UTC
 export LC_ALL=C
 export LANGUAGE=C
 export LANG=C
@@ -10,12 +11,12 @@ POSTS_HTML := $(patsubst posts/%.md,post.%.html,$(POSTS))
 
 post.%.xml: posts/%.md
 	truncate -s 0 $@
-	printf "<article data-sblg-article=\"1\"" >> $@
-	printf " data-sblg-tags=\"`lowdown -X tags $<`\"" >> $@
-	printf " data-sblg-title=\"`lowdown -X title $<`\"" >> $@
-	printf " data-sblg-author=\"`lowdown -X author $<`\"" >> $@
-	printf " data-sblg-datetime=\"`lowdown -X datetime $<`\"" >> $@
-	printf " data-sblg-aside=\"`lowdown -X aside $<`\">" >> $@
+	printf "<article data-sblg-article=\"1\">" >> $@
+	printf "<meta data-sblg-tags=\"`lowdown -X tags $<`\"/>" >> $@
+	printf "<meta data-sblg-title=\"`lowdown -X title $<`\"/>" >> $@
+	printf "<meta data-sblg-author=\"`lowdown -X author $<`\"/>" >> $@
+	printf "<meta data-sblg-datetime=\"`lowdown -X datetime $<`\"/>" >> $@
+	printf "<meta data-sblg-aside=\"`lowdown -X aside $<`\"/>" >> $@
 	lowdown $< >> $@
 	printf "</article>" >> $@
 

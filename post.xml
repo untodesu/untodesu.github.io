@@ -17,7 +17,7 @@
         <section>
             <header>
                 <h2>${sblg-title}</h2>
-                <p class="author">By ${sblg-author}, ${sblg-date}</p>
+                <p class="author">By ${sblg-author}, ${sblg-datetime-fmt|%Y-%m-%d %H:%M}</p>
                 <p class="tags">Tags: ${sblg-tags}</p><hr/>
             </header>
             <article data-sblg-article="1" data-sblg-permlink="0"></article>
