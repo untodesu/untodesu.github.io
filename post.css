@@ -24,6 +24,7 @@ body > header {
     min-height: 5%;
     width: 100%;
     border-bottom: 1px solid #222222;
+    font-family: monospace;
 }
 
 body > header > h1 {
