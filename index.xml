@@ -2,22 +2,20 @@
 <html>
     <head>
         <meta charset="utf-8"/>
+        <base target="_blank"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <script type="module" src="waves.js"></script>
         <link rel="stylesheet" href="index.css"/>
         <title>UNTODE.SU</title>
     </head>
     <body>
-        <header>
-            <h1><a href="index.html">ウントです</a></h1>
-            <p><a href="waves.html">Waves</a></p>
-            <p><a href="https://twitter.com/untodesu" target="_blank">Twitter</a></p>
-            <p><a href="https://github.com/untodesu" target="_blank">GitHub</a></p>
+        <header class="site-header">
+            <h1><a href="index.html" target="_self">ウントです</a></h1>
+            <p><a href="waves.html" target="_self">WAVES</a></p>
         </header>
         <nav data-sblg-nav="1" data-sblg-navcontent="1">
-            <h2><a href="${sblg-stripbase}.html">${sblg-title}</a></h2>
-            <p class="author">By ${sblg-author}, ${sblg-datetime-fmt|%Y-%m-%d %H:%M}</p>
-            <p class="tags">Tags: ${sblg-tags}</p>
+            <h2><a href="${sblg-stripbase}.html" target="_self">${sblg-title}</a></h2>
+            <p class="post-author">By ${sblg-author}, ${sblg-datetime-fmt|%Y-%m-%d %H:%M}</p>
+            <p class="post-tags">Tags: ${sblg-tags}</p>
             <blockquote><p>${sblg-aside}</p></blockquote><hr/>
         </nav>
     </body>

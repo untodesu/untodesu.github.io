@@ -17,7 +17,7 @@ post.%.xml: posts/%.md
 	printf "<meta data-sblg-author=\"`lowdown -X author $<`\"/>" >> $@
 	printf "<meta data-sblg-datetime=\"`lowdown -X datetime $<`\"/>" >> $@
 	printf "<meta data-sblg-aside=\"`lowdown -X aside $<`\"/>" >> $@
-	lowdown $< >> $@
+	lowdown --html-no-skiphtml --html-no-escapehtml $< >> $@
 	printf "</article>" >> $@
 
 index.html: $(POSTS_XML) index.xml post.xml

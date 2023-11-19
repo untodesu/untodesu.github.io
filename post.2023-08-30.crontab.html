@@ -3,24 +3,23 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script type="module" src="waves.js"></script>
+        <base target="_blank" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
         <link rel="stylesheet" href="post.css" />
         <title>Automating things without systemd | UNTODE.SU</title>
     </head>
     <body>
-        <header>
-            <h1><a href="index.html">ウントです</a></h1>
-            <p><a href="waves.html">Waves</a></p>
-            <p><a href="https://twitter.com/untodesu" target="_blank">Twitter</a></p>
-            <p><a href="https://github.com/untodesu" target="_blank">GitHub</a></p>
+        <header class="site-header">
+            <h1><a href="index.html" target="_self">ウントです</a></h1>
+            <p class="post-nav sblg-prev-has"><a href="post.2023-11-19.smp-servers.html" target="_self">[&#171;]</a></p>
+            <p class="post-nav sblg-next-has"><a href="post.2023-08-29.initial-post.html" target="_self">[&#187;]</a></p>
         </header>
-        <section>
-            <header>
-                <h2>Automating things without systemd</h2>
-                <p class="author">By untodesu, 2023-08-30 12:17</p>
-                <p class="tags">Tags: <span class="sblg-tag">crontab</span><span class="sblg-tag">automation</span></p>
-                <blockquote><p>Making things run in the background without root access</p></blockquote><hr />
+        <section class="post-content">
+            <header class="post-header">
+                <h2 class="post-title">Automating things without systemd</h2>
+                <p class="post-author">By untodesu, 2023-08-30 12:17</p>
+                <p class="post-tags">Tags: <span class="sblg-tag">crontab</span><span class="sblg-tag">automation</span></p>
+                <blockquote><p>Making things run in the background without root access</p></blockquote>
             </header>
             <article data-sblg-article="1"><meta data-sblg-tags="crontab automation"/><meta data-sblg-title="Automating things without systemd"/><meta data-sblg-author="untodesu"/><meta data-sblg-datetime="2023-08-30T12:17:00Z"/><meta data-sblg-aside="Making things run in the background without root access"/><p>This year I ran into the problem of needing to daemonize a
 process without using systemd (<code>--user</code> services won&#8217;t work
@@ -69,13 +68,7 @@ Other tasks include <code>watch</code> to do the very thing a wrapper script is
 supposed to do, and <code>stuff</code> to send a string of text into the server console.
 The <a href="https://github.com/untodesu/nrmc/blob/main/service.sh">script itself</a>
 is complicated, so here&#8217;s the crontab entry for the SMP:  </p>
-<pre><code class="language-crontab">*&#47;5 * * * * &#47;home&#47;und&#47;nrmc&#47;service.sh watch
-30 19 * * * &#47;home&#47;und&#47;nrmc&#47;service.sh stuff broadcast "Restarting in 30 minutes"
-45 19 * * * &#47;home&#47;und&#47;nrmc&#47;service.sh stuff broadcast "Restarting in 15 minutes"
-55 19 * * * &#47;home&#47;und&#47;nrmc&#47;service.sh stuff broadcast "Restarting in  5 minutes"
-55 19 * * * &#47;home&#47;und&#47;nrmc&#47;service.sh stuff save-all
-00 20 * * * &#47;home&#47;und&#47;nrmc&#47;service.sh restart
-</code></pre>
+<p><img src="media/2023-11-19.23-26.png" alt=""/></p>
 <p>And, as evident by the screenshots, the approach works:  </p>
 <p><img src="media/2023-08-30.11-47.png" alt=""/></p>
 </article>

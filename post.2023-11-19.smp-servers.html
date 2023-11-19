@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <base target="_blank" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <link rel="stylesheet" href="post.css" />
+        <title>What makes a Minecraft SMP great? | UNTODE.SU</title>
+    </head>
+    <body>
+        <header class="site-header">
+            <h1><a href="index.html" target="_self">ウントです</a></h1>
+            <p class="post-nav "><a href="post.2023-08-29.initial-post.html" target="_self">[&#171;]</a></p>
+            <p class="post-nav sblg-next-has"><a href="post.2023-08-30.crontab.html" target="_self">[&#187;]</a></p>
+        </header>
+        <section class="post-content">
+            <header class="post-header">
+                <h2 class="post-title">What makes a Minecraft SMP great?</h2>
+                <p class="post-author">By untodesu, 2023-11-19 15:00</p>
+                <p class="post-tags">Tags: <span class="sblg-tag">minecraft</span><span class="sblg-tag">multiplayer</span></p>
+                <blockquote><p>NRMC has been running practically non-stop for over three months. Though it has low player presence, it's still great to occasionally join and play. Why?</p></blockquote>
+            </header>
+            <article data-sblg-article="1"><meta data-sblg-tags="minecraft multiplayer"/><meta data-sblg-title="What makes a Minecraft SMP great?"/><meta data-sblg-author="untodesu"/><meta data-sblg-datetime="2023-11-19T15:00:00Z"/><meta data-sblg-aside="NRMC has been running practically non-stop for over three months. Though it has low player presence, it's still great to occasionally join and play. Why?"/><p>Since 2018 I played with people on a single (actually two, but the second one was made to keep playing without politically charged harassment against me) Minecraft SMP (survival multiplayer) server and generally did not bother searching or playing anywhere else. What&#8217;s the reason for that? This SMP didn&#8217;t have a game-breaking mod or a plugin installed, didn&#8217;t have any time constraints, didn&#8217;t have any lore.  </p>
+<h2 id="keep-things-simple">Keep things simple</h2>
+<p>Around 2021, a lot of Minecraft-related content on major media platforms (YouTube, Twitch, etc) spun around an idea of a multiplayer server: people get together, have fun and make content on the way.  </p>
+<p>Most of these SMPs have at least one quirk to them: DreamSMP has (or had) some lore, Lifesteal had a mod&#47;plugin to outright ban people when they die too much, something like Origins SMP has (or had) a mod that changes players stats whilst keeping them balanced.  </p>
+<p>One might say that all those <em>quirks</em> make the base game <em>less boring</em> and more entertaining to watch. I can&#8217;t disagree with this but I can&#8217;t agree either. And the reason for this is one simple question: <strong>is the base game really boring?</strong></p>
+<p>And the answer is: <em>absolutely f*cking not!</em> The base game is NOT boring! People just seem to blaze through it like they are speedrunning and not stop to enjoy all the little things around; this mindset makes new servers and singleplayer worlds to be played for like two days and then just get abandoned. I&#8217;ve seen YouTube videos popping up recently that state exactly that. I am not alone.  </p>
+<p>So the best SMP is the SMP that just <em>doesn&#8217;t have</em> any mods or game-breaking plugins but limits players evolving too quickly. How could this be achieved without using any mods? Hard difficulty. Players will learn how to play the game from scratch exactly like I did back in 2018. It&#8217;s a great experience.</p>
+<p>Keeping things simple also involves using as less plugins as possible. Here&#8217;s all the plugins I use at the time of this article writing:  </p>
+<p><img src="media/2023-11-19.18-20.png" alt=""/></p>
+<h2 id="survival-first-multiplayer-second">Survival first, Multiplayer second</h2>
+<p>Another way to prevent fast development is to adjust the gameplay in such a way that players rarely feel that the game is actually a multiplayer: every player would start on their own, build their own home, tame their own pets, etc; and only <em>occasionally</em> meet other players.  </p>
+<p>How could this be achieved then? There&#8217;s a couple of steps:  </p>
+<ol>
+<li><p>Setting up the server core to work as close to Vanilla Minecraft as possible. My SMP uses <a href="https://papermc.io/">Paper</a>, so there was plenty of documentation on how to set it up to work as close to vanilla as possible. At least now the server allows breaking bedrock, duping TNT entities and a lot of other technical things that are a thing in Vanilla.  </p>
+<p>Just, y&#8217;know, don&#8217;t forget about <a href="https://paper-chan.moe/paper-optimization/">optimizing</a> things while you&#8217;re setting up the server&#8217;s configuration.  </p></li>
+<li><p>Setting every player&#8217;s worldspawn point to a big random value. Just setting <code>spawnRadius</code> to a big value isn&#8217;t going to cut it because player can respawn <em>VERY FAR AWAY</em> from their initial spawn point. So I made a <a href="https://modrinth.com/plugin/wildspawn">plugin</a> to do exactly that, and it nicely integrates with Vanilla.  </p>
+<p>Have an example, the spawn point (in red) is very far away from the world&#8217;s geographic center and all the respawn points (in black) are spread around it:  </p></li>
+</ol>
+<p><img src="media/2023-11-18.21-05.png" alt=""/>  </p>
+<h2 id="keep-moderation-at-minimum">Keep moderation at minimum</h2>
+<p>Setting up an awfully big set of rules or inducing a dictatorship of a moderation team is not how players should feel whilst playing a survival game. But server management still should be a thing, and people that act hostile towards everyone are to be punished.  </p>
+<p>Though it may look like an anarchy, it is not. Griefing and any vandalizing isn&#8217;t allowed (again with reasons rooting at &#8220;Survival first&#8221; clause). But how can players report people who vandalized their property then? Here&#8217;s a couple of points:  </p>
+<ol>
+<li><p>The server should have a logging plugin of sorts installed. For example, my server uses a quite popular nowadays <a href="https://github.com/PlayPro/CoreProtect">CoreProtect</a>.  </p></li>
+<li><p>Commands to <em>inspect</em> and <em>lookup</em> data for a specific block position, player, range or a time frame are exposed to all players without exceptions. This allows players to either keep track of who was at their base and what items did they take, or to report vandals to management. For example, that&#8217;s how my SMP&#8217;s <code>permissions.yml</code> file looks like:  </p></li>
+</ol>
+<pre><code class="language-yaml">coreprotect.lookup:
+    default: true
+    children:
+        coreprotect.lookup.block:       true
+        coreprotect.lookup.chat:        true
+        coreprotect.lookup.click:       true
+        coreprotect.lookup.command:     true
+        coreprotect.lookup.container:   true
+        coreprotect.lookup.inventory:   true
+        coreprotect.lookup.kill:        true
+        coreprotect.lookup.near:        true
+        coreprotect.lookup.session:     true
+        coreprotect.lookup.sign:        true
+        coreprotect.lookup.username:    true
+coreprotect.inspect:
+    default: true
+</code></pre>
+<ol start="3">
+<li>Considering chat reporting being a debatable thing, I&#8217;d disable them altogether, but I respect personal choice; on my SMP I just allowed players to opt out from it by setting <code>enforce-secure-profile</code> to <code>false</code> in <code>server.properties</code>.</li>
+</ol>
+<h2 id="freedom-of-modding">Freedom of modding</h2>
+<p>Allowing players to install any client-side mods and resourcepacks as long as they do not give them unfair advantage is a must-have clause.  </p>
+<p>One notable exception to that is mods that add a waypoint system and&#47;or a minimap: these are allowed, and on top of that installing one is encouraged simply because when things are spread far apart in the world, it becomes hard to keep track of your friends locations!  </p>
+<p>I personally use a minimap mod with the minimap disabled, it clutters the UI and I just feel like it&#8217;s slightly unfair to see caves and players just like that.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Let&#8217;s reiterate what makes a Minecraft SMP great for me:  </p>
+<ol>
+<li><p>Have as less plugins installed as possible, and plugins installed must not steer the gameplay from Vanilla.  </p></li>
+<li><p>Server config set up in such a way that it behaves as close to Vanilla as possible without impeding performance.  </p></li>
+<li><p>Limit players development speed by spreading them out, making their gameplay progressively look and feel like singleplayer, just with some multiplayer additions.  </p></li>
+<li><p>Keeping moderation at minumum, giving the task of finding rule breakers to the players themselves by giving them access to a limited set of management commands.  </p></li>
+<li><p>Unless interfering with points above, the classic no-hacks rule or certain real-life laws, give players absolute freedom to play and modify the game.  </p></li>
+</ol>
+</article>
+        </section>
+    </body>
+</html>
