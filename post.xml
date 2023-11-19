@@ -3,6 +3,8 @@
     <head>
         <meta charset="utf-8"/>
         <base target="_blank"/>
+        <meta property="og:title" content="${sblg-title}"/>
+        <meta property="og:description" content="${sblg-aside}"/>
         <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
         <link rel="stylesheet" href="post.css"/>
         <title>${sblg-title} | UNTODE.SU</title>
