@@ -1,4 +1,0 @@
-<article data-sblg-article="1"><meta data-sblg-tags="mathjax html lowdown"/><meta data-sblg-title="I added MathJax. Now what?"/><meta data-sblg-author="untodesu"/><meta data-sblg-datetime="2023-11-20T23:30:00Z"/><meta data-sblg-aside="Tons of formulas to test the damn thing that's what"/><h3 id="heres-some-fourier-transform-goodness">Here&#8217;s some Fourier transform goodness</h3>
-<p>A generic Fourier transform for a signal \( s\left(t\right) \) is defined as following:<br/>
-\[ \dot{S}\left(j\omega\right)=\int_{-\infty}^{+\infty}s\left(t\right)\cdot\exp\left(j\omega t\right)\space dt \]  </p>
-</article>
