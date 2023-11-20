@@ -5,7 +5,9 @@
         <base target="_blank"/>
         <meta property="og:title" content="${sblg-title}"/>
         <meta property="og:description" content="${sblg-aside}"/>
-        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"/>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js"/>
+        <script type="text/javascript" src="https://example.com/mathjax/MathJax.js?config=TeX-AMS-MML_CHTML"></script>
         <link rel="stylesheet" href="post.css"/>
         <title>${sblg-title} | UNTODE.SU</title>
     </head>
@@ -20,7 +22,7 @@
                 <h2 class="post-title">${sblg-title}</h2>
                 <p class="post-author">By ${sblg-author}, ${sblg-datetime-fmt|%Y-%m-%d %H:%M}</p>
                 <p class="post-tags">Tags: ${sblg-tags}</p>
-                <blockquote><p>${sblg-aside}</p></blockquote>
+                <blockquote><p>${sblg-aside}</p></blockquote><hr/>
             </header>
             <article data-sblg-article="1" data-sblg-permlink="0"></article>
         </section>

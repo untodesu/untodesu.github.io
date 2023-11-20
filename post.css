@@ -118,8 +118,11 @@ a {
 pre {
     border-left: 0.3rem solid #444444;
     padding-left: 1rem;
+    padding-right: 1rem;
     font-style: italic;
     margin-bottom: 3rem;
+    max-width: 100%;
+    overflow-x: auto;
 }
 
 blockquote {
