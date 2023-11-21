@@ -2,30 +2,29 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8" />
         <base target="_blank" />
+        <meta charset="utf-8" />
         <meta property="og:title" content="Discrete Fourier Transform in Desmos" />
         <meta property="og:description" content="Wait, DSP tomfoolery in Desmos?!" />
+        <link rel="stylesheet" href="../common.css" />
+        <link rel="stylesheet" href="../post.css" />
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js"></script>
-        <script type="text/javascript" src="https://example.com/mathjax/MathJax.js?config=TeX-AMS-MML_CHTML"></script>
-        <link rel="stylesheet" href="post.css" />
         <title>Discrete Fourier Transform in Desmos | UNTODE.SU</title>
     </head>
     <body>
-        <header class="site-header">
-            <h1><a href="index.html" target="_self">ウントです</a></h1>
-            <p class="post-nav "><a href="post.2023-08-29.initial-post.html" target="_self">[&#171;]</a></p>
-            <p class="post-nav sblg-next-has"><a href="post.2023-11-19.smp-servers.html" target="_self">[&#187;]</a></p>
+        <header>
+            <h1><a href="../index.html" target="_self">ウントです</a></h1>
+            <p class=""><a href="2023-08-29.initial-post.html" target="_self">[&#171;]</a></p>
+            <p class="sblg-next-has"><a href="2023-11-19.smp-servers.html" target="_self">[&#187;]</a></p>
         </header>
-        <section class="post-content">
-            <header class="post-header">
-                <h2 class="post-title">Discrete Fourier Transform in Desmos</h2>
-                <p class="post-author">By untodesu, 2023-11-21 02:00</p>
-                <p class="post-tags">Tags: <span class="sblg-tag">math</span><span class="sblg-tag">signals</span></p>
-                <blockquote><p>Wait, DSP tomfoolery in Desmos?!</p></blockquote><hr />
+        <section>
+            <header>
+                <h2>Discrete Fourier Transform in Desmos</h2>
+                <p>Tags: <span class="sblg-tag">math</span><span class="sblg-tag">signals</span></p>
+                <blockquote><p>Wait, DSP tomfoolery in Desmos?!</p></blockquote>
             </header>
-            <article data-sblg-article="1"><meta data-sblg-tags="math signals"/><meta data-sblg-title="Discrete Fourier Transform in Desmos"/><meta data-sblg-author="untodesu"/><meta data-sblg-datetime="2023-11-21T02:00:00Z"/><meta data-sblg-aside="Wait, DSP tomfoolery in Desmos?!"/><p>If you are not familiar with changing a signal&#8217;s domain from time to frequency, there&#8217;s plenty of information available online!  Just click <a href="https://en.wikipedia.org/wiki/Fourier_series">the</a> <a href="https://en.wikipedia.org/wiki/Fourier_transform">right</a> <a href="https://en.wikipedia.org/wiki/Discrete_Fourier_transform">links</a>!  </p>
+            <article data-sblg-article="1"><meta data-sblg-tags="math signals"/><meta data-sblg-title="Discrete Fourier Transform in Desmos"/><meta data-sblg-aside="Wait, DSP tomfoolery in Desmos?!"/><p>If you are not familiar with changing a signal&#8217;s domain from time to frequency, there&#8217;s plenty of information available online!  Just click <a href="https://en.wikipedia.org/wiki/Fourier_series">the</a> <a href="https://en.wikipedia.org/wiki/Fourier_transform">right</a> <a href="https://en.wikipedia.org/wiki/Discrete_Fourier_transform">links</a>!  </p>
 <blockquote>
 <p><strong>NOTE:</strong> all the Desmos plots are clickable! If you want to see what happens if you change something, feel free to open the plot and fiddle with it!  </p>
 </blockquote>
@@ -46,7 +45,7 @@
 <li><p>\(N=200\space samples\)  </p></li>
 </ul>
 <p>Lets plot the continious signal alongside discrete. Continious should look like an envelope filled with vertical lines meaning each sample&#8217;s height. Let&#8217;s have a look:  </p>
-<p><a href="https://www.desmos.com/calculator/curcwmudot"><img src="media/dsp-01.svg" alt=""/></a></p>
+<p><a href="https://www.desmos.com/calculator/curcwmudot"><img src="assets/2023-11-21.desmos-dsp-fourier/dsp-01.svg" alt=""/></a></p>
 <h3 id="shifting-gears-into-the-frequency-domain">Shifting gears into the frequency domain</h3>
 <p>Okay, well, how do you then turn <em>this</em> into a frequency spectrum? The answer is in the title: you perform a little magic ritual called Fourier Transform:  </p>
 <p>\[\dot{S}_{m}=\sum_{n=0}^{N-1}s_{n}\cdot\exp\left[-j\cdot\frac{2\pi mn}{N}\right]\]  </p>
@@ -62,7 +61,7 @@
 <p>Now, we can combine the two and get just amplitude of each frequency by using a little bit of 8th grade <a href="https://en.wikipedia.org/wiki/Pythagorean_theorem">geometry</a>:  </p>
 <p>\[S_{m}=\sqrt{Re^2\left[\dot{S}_{m}\right]+Im^2\left[\dot{S}_{m}\right]}\]  </p>
 <p>Let&#8217;s plot that spectrum and see what it looks like:  </p>
-<p><a href="https://www.desmos.com/calculator/saxzfhsflt"><img src="media/dsp-02.svg" alt=""/></a></p>
+<p><a href="https://www.desmos.com/calculator/saxzfhsflt"><img src="assets/2023-11-21.desmos-dsp-fourier/dsp-02.svg" alt=""/></a></p>
 <p>Now would you look at that! It looks exactly how a real DFT spectrum would look like!  </p>
 <h3 id="making-sure-its-real">Making sure it&#8217;s real</h3>
 <p>Lets simulate <a href="https://en.wikipedia.org/wiki/Spectral_leakage">spectral leakage</a>. To do that we have to set the signal&#8217;s frequency to a value that doesn&#8217;t work well with other settings:  </p>
@@ -72,17 +71,20 @@
 <li><p>\(N=100\space samples\)  </p></li>
 </ul>
 <p>Now that the frequency value is set to something that really doesn&#8217;t want to cooperate with DFT, lets take a look how did the graph change:  </p>
-<p><a href="https://www.desmos.com/calculator/nxcrsubged"><img src="media/dsp-03.svg" alt=""/></a>  </p>
+<p><a href="https://www.desmos.com/calculator/nxcrsubged"><img src="assets/2023-11-21.desmos-dsp-fourier/dsp-03.svg" alt=""/></a>  </p>
 <p>That certainly looks like spectral leakage to me!  </p>
 <h3 id="common-signals">Common signals</h3>
 <p>Lets plot some commonly known signals in frequency domain:</p>
 <ol>
-<li><p>Square wave: \(s\left(t\right)=sign\left[\cos\left(2\pi f_{0}t\right)\right]\)  </p>
-<p><a href="https://www.desmos.com/calculator/ocpgchltpf"><img src="media/dsp-04.svg" alt=""/></a></p></li>
-<li><p>Triangle wave: \(s\left(t\right)=2\cdot\frac{\arccos\left[\cos\left(2\pi f_{0}t\right)\right]}{\pi}-1\)  </p>
-<p><a href="https://www.desmos.com/calculator/ncfkgrhmri"><img src="media/dsp-05.svg" alt=""/></a>  </p></li>
-<li><p>Sawtooth wave: \(s\left(t\right)=2\cdot\left[\left(f_{0}\cdot t\right)\bmod 1\right]-1\)</p>
-<p><a href="https://www.desmos.com/calculator/xseytjetha"><img src="media/dsp-06.svg" alt=""/></a></p></li>
+<li><p>Square wave:  </p>
+<p>\[s\left(t\right)=sign\left[\cos\left(2\pi f_{0}t\right)\right]\]  </p>
+<p><a href="https://www.desmos.com/calculator/ocpgchltpf"><img src="assets/2023-11-21.desmos-dsp-fourier/dsp-04.svg" alt=""/></a></p></li>
+<li><p>Triangle wave:  </p>
+<p>\[s\left(t\right)=2\cdot\frac{\arccos\left[\cos\left(2\pi f_{0}t\right)\right]}{\pi}-1\]  </p>
+<p><a href="https://www.desmos.com/calculator/ncfkgrhmri"><img src="assets/2023-11-21.desmos-dsp-fourier/dsp-05.svg" alt=""/></a>  </p></li>
+<li><p>Sawtooth wave:  </p>
+<p>\[s\left(t\right)=2\cdot\left[\left(f_{0}\cdot t\right)\bmod 1\right]-1\]</p>
+<p><a href="https://www.desmos.com/calculator/xseytjetha"><img src="assets/2023-11-21.desmos-dsp-fourier/dsp-06.svg" alt=""/></a></p></li>
 </ol>
 <h3 id="conclusion">Conclusion</h3>
 <p>So I guess you really <em>can</em> perform DFT in Desmos. It&#8217;s quite probable that you also can do other kinds of DSP (digital signal processing) there, I just haven&#8217;t tried it yet, but I sure would! Just, y&#8217;know, not right now!  </p>
