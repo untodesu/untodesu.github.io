@@ -45,7 +45,7 @@ header.site-header > h1 > a {
 
 header.site-header > p {
     display: table-cell;
-    font-size: 150%;
+    font-size: 2rem;
     font-weight: 200;
     margin-top: 0;
     vertical-align: middle;
@@ -54,32 +54,6 @@ header.site-header > p {
 }
 
 header.site-header > p > a {
-    color: inherit;
-    text-decoration: none;
-}
-
-header.site-header > p.post-nav {
-    display: table-cell;
-    font-size: 1.5rem;
-    font-weight: 200;
-    margin-top: 1rem;
-    vertical-align: middle;
-    visibility: hidden;
-    padding-right: 2rem;
-    width: 100%;
-}
-
-header.site-header > p.post-nav.sblg-next-has {
-    text-decoration: none;
-    visibility: visible;
-}
-
-header.site-header > p.post-nav.sblg-prev-has {
-    text-decoration: none;
-    visibility: visible;
-}
-
-header.site-header > p.post-nav > a {
     color: inherit;
     text-decoration: none;
 }
