@@ -30,6 +30,7 @@ body > nav[data-sblg-nav] > ul > li > h2 {
     font-family: monospace;
     font-size: 200%;
     font-weight: 600;
+    margin-top: 1rem;
     margin-bottom: 1rem;
     text-align: left;
 }
@@ -41,6 +42,7 @@ body > nav[data-sblg-nav] > p q {
 
 ul {
     list-style-type: none;
+    margin-top: 0;
     padding: 0;
 }
 
