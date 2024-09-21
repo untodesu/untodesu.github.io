@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base target="_blank"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="color-scheme" content="light dark"/>
+    <meta name="author" content="{{ site.author }}"/>
+    {%- if description %}
+    <meta name="description" content="{{ description }}"/>
+    {%- else %}
+    <meta name="description" content="{{ site.description }}"/>
+    {%- endif %}
+    <link rel="alternate" href="/atom.xml" type="application/atom+xml"/>
+    <link rel="stylesheet" href="/style.css" type="text/css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://www.unpkg.com/katex@0.16.10/dist/katex.min.css" type="text/css"/>
+    <script defer src="https://www.unpkg.com/katex@0.16.10/dist/katex.min.js"></script>
+    <script defer src="https://www.unpkg.com/katex@0.16.10/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    <title>{% block title %}{% endblock %} | {{ site.description }}</title>
+  </head>
+  <body>
+    <header>
+      <h1><a target="_self" href="/">{{ site.title }}</a></h1>
+      <nav>
+        <h2>{{ site.description }}</h2>
+        <ul>
+          <li><h2><a target="_self" href="/">[blog]</a></h2></li>
+          <li><h2><a target="_self" href="/archive.html">[archive]</a></h2></li>
+          <li><h2><a target="_self" href="/tags/">[tags]</a></h2></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+    {% block content %}
+    {% endblock %}
+    </main>
+    <footer>
+      <p>
+        <a href="/atom.xml">atom.xml</a>&nbsp;
+        <a rel="me" href="https://bsky.app/profile/at.untode.su">bluesky</a>&nbsp;
+        <a rel="me"href="https://github.com/untodesu">github</a>
+      </p>
+      <p>built with <a href="https://github.com/venthur/blag">venthur/blag</a></p>
+    </footer>
+  </body>
+</html>

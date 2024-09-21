@@ -1,0 +1,172 @@
+@import "code-light.css" (prefers-color-scheme: light);
+@import "code-dark.css" (prefers-color-scheme: dark);
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #DDDDDD;
+    --background-dim: #CCCCCC;
+    --foreground: #000000;
+    --foreground-dim: #202020;
+    --foreground-heavy: #141414;
+    --primary-color: #202020;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #202020;
+    --background-dim: #303030;
+    --foreground: #BBBBBB;
+    --foreground-dim: #A3A3A3;
+    --foreground-heavy: #F0F0F0;
+    --primary-color: #FFFFFF;
+  }
+}
+
+html {
+  font-size: 24px;
+  font-family: "Roboto";
+  text-align: justify;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 50rem;
+  background: var(--background);
+  color: var(--foreground);
+  line-height: 1.5;
+  padding: 0rem 0.5rem;
+}
+
+aside {
+  font-family: "Anonymous Pro";
+  color: var(--foreground-dim);
+}
+
+img {
+  min-width: 100%;
+  max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+  color: var(--foreground-heavy);
+}
+
+a {
+  color: var(--foreground-heavy);
+}
+
+a:hover {
+  color: var(--foreground-dim);
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+  color: var(--foreground-dim);
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav li {
+  display: inline;
+}
+
+article header {
+  display: flex;
+  flex-direction: row;
+  font-family: "Anonymous Pro";
+  margin: 1rem 0;
+}
+
+article header time {
+  white-space: nowrap;
+  color: var(--foreground-dim);
+  font-size: 1.1rem;
+  margin-right: 0.5rem;
+  flex: 0 0 12ex;
+}
+
+article header h2 {
+  display: inline;
+  font-size: 1.2rem;
+}
+
+article header p {
+  display: inline;
+  font-size: 1.2rem;
+}
+
+code, pre {
+  background: var(--background-dim);
+  border-radius: 0.3rem;
+  font-family: "Anonymous Pro";
+}
+
+pre {
+  padding: 1rem;
+  border-left: 2px solid var(--primary-color);
+  overflow: auto;
+}
+
+code {
+  padding: 0.1rem 0.2rem;
+}
+
+/* reset the padding for code inside pre */
+pre code {
+  padding: 0;
+}
+
+blockquote {
+  background: var(--background-dim);
+  border-radius: 0 0.3rem 0.3rem 0;
+  font-style: italic;
+  border-left: 2px solid var(--primary-color);
+  margin: 0;
+  padding: 1rem;
+}
+
+/* reset the margin for p inside blockquotes */
+blockquote p {
+  margin: 0;
+}
+
+body > header {
+  padding: 2rem 0;
+  font-family: "Anonymous Pro";
+}
+
+body footer {
+  margin: 3rem 0;
+  color: var(--foreground-dim);
+  font-size: smaller;
+  font-family: "Anonymous Pro";
+  text-align: center;
+}
+
+header nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+header h1 {
+  margin: 0 auto;
+  color: var(--primary-color);
+}
+
+header h2 {
+  display: inline;
+  font-size: 1.2rem;
+}
+
+.katex {
+  font-size: xx-large;
+}
+

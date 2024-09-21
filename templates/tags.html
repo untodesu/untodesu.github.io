@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Tags{% endblock %}
+
+{% block content %}
+<h2>Tags</h2>
+<ul>
+{% for tag, size in tags|sort %}
+<li><a target="_self" href="{{ tag }}.html">{{ tag }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}
