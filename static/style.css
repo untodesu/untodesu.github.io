@@ -170,3 +170,13 @@ header h2 {
   font-size: xx-large;
 }
 
+@media only screen and (max-width: 768px) {
+  nav > h2 { display: none; }
+  nav > ul { margin: 0; padding: 0; }
+  main { font-size: 75% }
+  article > header > div { font-size: inherit; }
+  article > header > div { text-align: left; hyphens: auto; }
+  article > header > time { display: none; }
+  article > header > div > h2 { font-size: x-large; }
+  article > header > div > p { font-size: x-large; }
+}
